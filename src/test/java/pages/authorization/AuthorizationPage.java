@@ -5,7 +5,6 @@ import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.element;
 
-
 public class AuthorizationPage {
 
   private final By EMAIL = By.xpath("//input[@name='email']");
@@ -17,27 +16,19 @@ public class AuthorizationPage {
   public SelenideElement getEmail() {
     return element(EMAIL);
   }
-
   public void setEmail(String email) {
     getEmail().setValue(email);
   }
-
   public SelenideElement getPassword() {
     return element(PASSWORD);
   }
-
   public void setPassword(String password) {
     getPassword().setValue(password);
   }
-
   public SelenideElement getEnterButton() {
     return element(ENTER_BUTTON);
   }
-
-  public SelenideElement getLinkRegister() {
-    return element(LINK_REGISTER);
-  }
-
+  public SelenideElement getLinkRegister() {return element(LINK_REGISTER);}
   public SelenideElement getLinkForgotPassword() {
     return element(LINK_FORGOT_PASSWORD);
   }
