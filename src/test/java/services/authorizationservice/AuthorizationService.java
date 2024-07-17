@@ -1,7 +1,6 @@
-package services.authorization;
+package services.authorizationservice;
 
 import base.BaseService;
-
 import static com.codeborne.selenide.Selenide.*;
 
 public class AuthorizationService extends BaseService {
