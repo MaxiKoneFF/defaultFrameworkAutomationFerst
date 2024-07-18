@@ -5,6 +5,7 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class MainPageService extends BaseService {
 
-    public void openBaseUrl() {open(baseUrl);
-    }
+public void openBaseUrl() {
+open(baseUrl);
+}
 }
