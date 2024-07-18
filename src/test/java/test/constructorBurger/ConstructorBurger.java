@@ -1,16 +1,16 @@
 package test.constructorBurger;
 
-import pages.constructor.ConstructorPage;
 import org.testng.annotations.Test;
-import services.mainpageservice.MainPageService;
+import pages.constructor.ConstructorPage;
+import services.constructorPage.ConstructorServise;
 
 public class ConstructorBurger {
-    private final MainPageService mainPageService = new MainPageService();
+    private final ConstructorServise constructorService = new ConstructorServise();
     private final ConstructorPage constructorPage = new ConstructorPage();
 
     @Test
     public void chooseToppingAndMakeOrder() {
-        mainPageService.openBaseUrl();
+        constructorService.openBaseUrl();
         constructorPage.getToppingButton();
         constructorPage.getChooseBun();
         constructorPage.getMakeOrder();
