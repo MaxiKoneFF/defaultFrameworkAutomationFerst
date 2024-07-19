@@ -9,7 +9,7 @@ public class Authorization {
 
     private final AuthorizationService authorizationService = new AuthorizationService();
     private final AuthorizationPage authorizationPage = new AuthorizationPage();
-    private final ConstructorServise mainPageService = new ConstructorServise();
+    private final ConstructorServise constructorServise = new ConstructorServise();
 
     @Test
     public void checkAuthorization() {
@@ -20,6 +20,6 @@ public class Authorization {
         authorizationPage.setEmail(email);
         authorizationPage.setPassword(password);
         authorizationPage.getEnterButton().click();
-        mainPageService.openBaseUrl();
+        constructorServise.openBaseUrl();
     }
 }
