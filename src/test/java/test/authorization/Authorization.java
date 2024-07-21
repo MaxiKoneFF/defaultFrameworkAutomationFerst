@@ -2,28 +2,24 @@ package test.authorization;
 
 import org.testng.annotations.Test;
 import pages.authorization.AuthorizationPage;
-import pages.authorization.ConstructorPage;
-import services.authorization.AuthorizationService;
-import services.authorization.PageAftherAutarization;
-import static com.codeborne.selenide.Condition.visible;
+import services.authorizationService.AuthorizationService;
+import services.constructorPage.ConstructorServise;
 
 public class Authorization {
 
-  private final AuthorizationService authorizationService = new AuthorizationService();
-  private final AuthorizationPage authorizationPage = new AuthorizationPage();
-  private final PageAftherAutarization pageAftherAutarization = new PageAftherAutarization();
-  private final ConstructorPage constructorPage = new ConstructorPage();
+    private final AuthorizationService authorizationService = new AuthorizationService();
+    private final AuthorizationPage authorizationPage = new AuthorizationPage();
+    private final ConstructorServise constructorServise = new ConstructorServise();
 
-  @Test
-  public void checkAuthorization() {
-    String email = "konev.tonystark@gmail.com";
-    String password = "94949697";
+    @Test
+    public void checkAuthorization() {
+        String email = "konev.tonystark@gmail.com";
+        String password = "94949697";
 
-    authorizationService.openAutorizationPage();
-    authorizationPage.setEmail(email);
-    authorizationPage.setPassword(password);
-    authorizationPage.getEnterButton().click();
-    pageAftherAutarization.openPageAftherAutarization();
-    constructorPage.getAftherRegistrationButton().click();
-  }
+        authorizationService.openAutorizationPage();
+        authorizationPage.setEmail(email);
+        authorizationPage.setPassword(password);
+        authorizationPage.getEnterButton().click();
+        constructorServise.openBaseUrl();
+    }
 }
