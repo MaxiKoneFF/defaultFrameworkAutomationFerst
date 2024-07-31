@@ -1,9 +1,11 @@
 package pages.authorization;
 
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.element;
+import static java.lang.Thread.sleep;
 
 public class AuthorizationPage {
 
@@ -13,20 +15,30 @@ public class AuthorizationPage {
     private final By LINK_REGISTER = By.xpath("//a[contains(text(), 'Зарегистрироваться')]");
     private final By LINK_FORGOT_PASSWORD = By.xpath("//a[contains(text(), 'Восстановить пароль')]");
 
-    public SelenideElement getEmail() {
+    public SelenideElement inputEmail() {
         return element(EMAIL);
     }
-    public void setEmail(String email) {
-        getEmail().setValue(email);
+    public void enterEmail(String email) {
+        inputEmail().setValue(email);
     }
-    public SelenideElement getPassword() {
+    public SelenideElement inputPassword() {
         return element(PASSWORD);
     }
-    public void setPassword(String password) {
-        getPassword().setValue(password);
+    public void enterPassword(String password) {
+        inputPassword().setValue(password);
     }
-    public SelenideElement getEnterButton() {
+    public SelenideElement enterButton() {
         return element(ENTER_BUTTON);
+    }
+
+    public void clickEnterButton() {
+        enterButton().click();
+        try {
+            sleep(2000);
+        } catch (
+                Exception e) {
+            e.printStackTrace();
+        }
     }
     public SelenideElement getLinkRegister() {
         return element(LINK_REGISTER);
