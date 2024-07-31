@@ -2,24 +2,21 @@ package test.authorization;
 
 import org.testng.annotations.Test;
 import pages.authorization.AuthorizationPage;
-import services.authorizationService.AuthorizationService;
-import services.constructorPage.ConstructorServise;
+import services.AuthorizationService;
 
 public class Authorization {
 
     private final AuthorizationService authorizationService = new AuthorizationService();
     private final AuthorizationPage authorizationPage = new AuthorizationPage();
-    private final ConstructorServise constructorServise = new ConstructorServise();
 
     @Test
     public void checkAuthorization() {
         String email = "konev.tonystark@gmail.com";
         String password = "94949697";
 
-        authorizationService.openAutorizationPage();
-        authorizationPage.setEmail(email);
-        authorizationPage.setPassword(password);
-        authorizationPage.getEnterButton().click();
-        constructorServise.openBaseUrl();
+        authorizationService.openAuthorizationPage();
+        authorizationPage.enterEmail(email);
+        authorizationPage.enterPassword(password);
+        authorizationPage.clickEnterButton();
     }
 }
