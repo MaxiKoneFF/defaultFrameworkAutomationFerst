@@ -1,5 +1,6 @@
 package pages.constructor;
 
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
@@ -12,8 +13,9 @@ public class ConstructorPage {
     private final By TOPPING_BUN = By.xpath("//p[contains(text(), 'Краторная булка N-200i')]");
     private final By SOURCE_ELEMENT = By.xpath("//*[@id=\"root\"]/div/main/div/section[2]/div[1]");
     private final By ORDER = By.xpath("//button[contains(text(), 'Оформить заказ')]");
-    private final By ORDER_NUMBER = By.xpath("//*[contains(@class, 'modal-overlay_overlay__AKixE')]");
-    private final By ORDER_FEED = By.xpath("//button[contains(text(), 'Лента заказов')]");
+    private final By ORDER_FEED = By.xpath("//*[@id=\"root\"]/div/header/nav/div[1]/a[2]/p");
+    private final By FIND_ORDER = By.xpath("//*[@id=\"modals\"]/div[1]/div[2]/h2");
+    private final By FIND_ORDER_ON_ORDER_FEED = By.xpath("//*[@id=\"root\"]/div/main/div/div[1]/div/a[3]/div[1]/span[1]");
 
     public SelenideElement toppingBun() {
         return element(TOPPING_BUN).shouldBe(visible);
@@ -38,21 +40,29 @@ public class ConstructorPage {
     public void makeOrder() {
         order().click();
         try {
-            sleep(25000);
+            sleep(18000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        order().pressEscape();
+    }
+
+    public SelenideElement orderFeed() {
+        return element(ORDER_FEED);
+    }
+
+    public void clickOrderFeed() {
+        orderFeed().click();
+        try {
+            sleep(4000);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-public SelenideElement orderNumber() {
-        return element(ORDER_NUMBER);
+    public SelenideElement findOrder(){
+        SelenideElement orderElement = element(FIND_ORDER);
+        SelenideElement feedElement = orderElement.find(FIND_ORDER_ON_ORDER_FEED);
+        return orderElement;
     }
-    public void closeOrderNumber(){
-        orderNumber().click();
-    }
-    public SelenideElement orderFeed() {
-        return element(ORDER_FEED);
-    }
-    public void clickOrderFeed() {
-        orderFeed().click();
-    }
+
 }

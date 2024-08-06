@@ -25,7 +25,7 @@ public class ConstructorBurger {
     public void chooseToppingAndMakeOrder() {
         constructorPage.dragAndDropBun();
         constructorPage.makeOrder();
-        constructorPage.closeOrderNumber();
         constructorPage.clickOrderFeed();
+        constructorPage.findOrder();
     }
 }
