@@ -13,7 +13,8 @@ public class ConstructorBurger {
     private final ConstructorPage constructorPage = new ConstructorPage();
     private final AuthorizationPage authorizationPage = new AuthorizationPage();
     private final AuthorizationService authorizationService = new AuthorizationService();
-    private final ExitFromAccount exitFromAccountPage = new ExitFromAccount();
+    private final ExitFromAccount exitFromAccount = new ExitFromAccount();
+
     @BeforeTest
     public void authorization(){
         String email = "konev.tonystark@gmail.com";
@@ -33,7 +34,7 @@ public class ConstructorBurger {
     }
     @AfterTest
     public void exitFromAccount(){
-        exitFromAccountPage.comeToPersonalAccount();
-        exitFromAccountPage.pressExitButton();
+        exitFromAccount.comeToPersonalAccount();
+        exitFromAccount.pressExitButton();
     }
 }

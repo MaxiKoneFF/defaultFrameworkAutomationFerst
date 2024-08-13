@@ -34,6 +34,7 @@ public class ConstructorPage {
 
     public SelenideElement order() {
         return element(ORDER);
+
     }
 
     public void makeOrder() {
