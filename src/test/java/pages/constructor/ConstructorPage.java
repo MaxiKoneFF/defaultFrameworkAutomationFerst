@@ -17,11 +17,11 @@ public class ConstructorPage {
     private final By FIND_ORDER_ON_FEED = By.xpath("//*[@class = text text_type_digits-default undefined");
 
     public SelenideElement toppingBun() {
-        return element(TOPPING_BUN).shouldBe(visible.because("Страница не прогрузилась"));
+        return element(TOPPING_BUN).shouldBe(visible.because("Элемент 'Краторная булка N-200i' не отображается на странице"));
     }
 
     public SelenideElement sourceElement() {
-        return element(SOURCE_ELEMENT).shouldBe(visible.because("Страница не прогрузилась"));
+        return element(SOURCE_ELEMENT).shouldBe(visible.because("Элемент 'Выберите булки' не отображается на странице"));
     }
 
     public void dragAndDropBun() {
@@ -38,8 +38,8 @@ public class ConstructorPage {
     }
 
     public void makeOrder() {
-        order().shouldBe(visible.because("Страница не прогрузилась")).click();
-        sleep(18000);
+        order().shouldBe(visible.because("Кнопка 'Оформить заказ' не отображается на странице")).click();
+        sleep(18000); //добавлено ожидание, так как заказ формируется долго.
         order().pressEscape();
     }
 
@@ -48,8 +48,7 @@ public class ConstructorPage {
     }
 
     public void clickOrderFeed() {
-        orderFeed().shouldBe(visible.because("Долгое ожидание загрузки")).click();
-        sleep(3000);
+        orderFeed().shouldBe(visible.because("элемент 'Лента заказов' не отображается на странице")).click();
     }
 
     public SelenideElement findOrder() {

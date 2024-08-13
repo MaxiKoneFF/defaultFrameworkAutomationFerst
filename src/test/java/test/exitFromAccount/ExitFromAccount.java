@@ -1,16 +1,15 @@
-package test.constructorBurger;
+package test.exitFromAccount;
 
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pages.authorization.AuthorizationPage;
-import pages.constructor.ConstructorPage;
+import pages.account.AccountPage;
 import services.AuthorizationService;
 
-public class ConstructorBurger {
-
-    private final ConstructorPage constructorPage = new ConstructorPage();
-    private final AuthorizationPage authorizationPage = new AuthorizationPage();
+public class ExitFromAccount {
     private final AuthorizationService authorizationService = new AuthorizationService();
+    private final AuthorizationPage authorizationPage = new AuthorizationPage();
+    private final AccountPage exitFromAccountPage = new AccountPage();
 
     @BeforeTest
     public void authorization() {
@@ -24,10 +23,8 @@ public class ConstructorBurger {
     }
 
     @Test
-    public void chooseToppingAndMakeOrder() {
-        constructorPage.dragAndDropBun();
-        constructorPage.makeOrder();
-        constructorPage.clickOrderFeed();
-        constructorPage.findOrder();
+    public void exitFromAccount(){
+        exitFromAccountPage.comeToPersonalAccount();
+        exitFromAccountPage.pressExitButton();
     }
 }
