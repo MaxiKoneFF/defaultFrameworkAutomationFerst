@@ -1,14 +1,11 @@
 package pages.authorization;
 
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.element;
-import static java.lang.Thread.sleep;
 
 public class AuthorizationPage {
-
     private final By EMAIL = By.xpath("//input[@name='email']");
     private final By PASSWORD = By.xpath("//input[@name='password']");
     private final By ENTER_BUTTON = By.xpath("//button[contains(text(), 'Войти')]");
@@ -17,20 +14,20 @@ public class AuthorizationPage {
         return element(EMAIL);
     }
 
-    public void enterEmail(String email) {
-        inputEmail().setValue(email);
-    }
-
     public SelenideElement inputPassword() {
         return element(PASSWORD);
     }
 
-    public void enterPassword(String password) {
-        inputPassword().setValue(password);
-    }
-
     public SelenideElement enterButton() {
         return element(ENTER_BUTTON);
+    }
+
+    public void enterEmail(String email) {
+        inputEmail().setValue(email);
+    }
+
+    public void enterPassword(String password) {
+        inputPassword().setValue(password);
     }
 
     public void clickEnterButton() {

@@ -7,7 +7,6 @@ import pages.constructor.ConstructorPage;
 import services.AuthorizationService;
 
 public class ConstructorBurger {
-
     private final ConstructorPage constructorPage = new ConstructorPage();
     private final AuthorizationPage authorizationPage = new AuthorizationPage();
     private final AuthorizationService authorizationService = new AuthorizationService();

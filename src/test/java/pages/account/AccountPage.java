@@ -3,6 +3,7 @@ package pages.account;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.element;
 
 public class AccountPage {
@@ -10,15 +11,18 @@ public class AccountPage {
     private final By EXIT_BUTTON = By.xpath("//button[contains(text(), 'Выход')]");
 
     public SelenideElement personalAccount() {
-        return element(ACCOUNT_BUTTON);
+        return element(ACCOUNT_BUTTON).shouldBe(visible.because("Элемент 'Личный кабинет' не отображается на странице"));
     }
-    public void comeToPersonalAccount(){
+
+    public SelenideElement exitFromAccount() {
+        return element(EXIT_BUTTON).shouldBe(visible.because("Кнопка 'Выход' не отображается на странице"));
+    }
+
+    public void comeToPersonalAccount() {
         personalAccount().click();
     }
-    public SelenideElement exitFromAccount(){
-        return element(EXIT_BUTTON);
-    }
-    public void pressExitButton(){
+
+    public void clickExitButton() {
         exitFromAccount().click();
     }
 }

@@ -9,7 +9,7 @@ import services.AuthorizationService;
 public class ExitFromAccount {
     private final AuthorizationService authorizationService = new AuthorizationService();
     private final AuthorizationPage authorizationPage = new AuthorizationPage();
-    private final AccountPage exitFromAccountPage = new AccountPage();
+    private final AccountPage accountPage = new AccountPage();
 
     @BeforeTest
     public void authorization() {
@@ -23,8 +23,8 @@ public class ExitFromAccount {
     }
 
     @Test
-    public void exitFromAccount(){
-        exitFromAccountPage.comeToPersonalAccount();
-        exitFromAccountPage.pressExitButton();
+    public void exitFromAccount() {
+        accountPage.comeToPersonalAccount();
+        accountPage.clickExitButton();
     }
 }
