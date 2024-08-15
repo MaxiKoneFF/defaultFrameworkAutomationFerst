@@ -5,7 +5,6 @@ import pages.authorization.AuthorizationPage;
 import services.AuthorizationService;
 
 public class Authorization {
-
     private final AuthorizationService authorizationService = new AuthorizationService();
     private final AuthorizationPage authorizationPage = new AuthorizationPage();
 

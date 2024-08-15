@@ -8,7 +8,6 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
 public class ConstructorPage {
-
     private final By TOPPING_BUN = By.xpath("//p[contains(text(), 'Краторная булка N-200i')]");
     private final By SOURCE_ELEMENT = By.xpath("//*[contains(text(), 'Выберите булки')]");
     private final By ORDER = By.xpath("//button[contains(text(), 'Оформить заказ')]");
@@ -17,39 +16,19 @@ public class ConstructorPage {
     private final By FIND_ORDER_ON_FEED = By.xpath("//*[@class = text text_type_digits-default undefined");
 
     public SelenideElement toppingBun() {
-        return element(TOPPING_BUN).shouldBe(visible.because("Страница не прогрузилась"));
+        return element(TOPPING_BUN);
     }
 
     public SelenideElement sourceElement() {
-        return element(SOURCE_ELEMENT).shouldBe(visible.because("Страница не прогрузилась"));
-    }
-
-    public void dragAndDropBun() {
-        SelenideElement toppingBun = toppingBun();
-        SelenideElement sourceElement = sourceElement();
-
-        Actions actions = actions();
-        actions.dragAndDrop(toppingBun, sourceElement).perform();
+        return element(SOURCE_ELEMENT);
     }
 
     public SelenideElement order() {
         return element(ORDER);
-
-    }
-
-    public void makeOrder() {
-        order().shouldBe(visible.because("Страница не прогрузилась")).click();
-        sleep(18000);
-        order().pressEscape();
     }
 
     public SelenideElement orderFeed() {
         return element(ORDER_FEED);
-    }
-
-    public void clickOrderFeed() {
-        orderFeed().shouldBe(visible.because("Долгое ожидание загрузки")).click();
-        sleep(3000);
     }
 
     public SelenideElement findOrder() {
@@ -61,5 +40,23 @@ public class ConstructorPage {
             System.out.println("Заказ найден");
         }
         return orderElement;
+    }
+
+    public void dragAndDropBun() {
+        SelenideElement toppingBun = toppingBun();
+        SelenideElement sourceElement = sourceElement();
+
+        Actions actions = actions();
+        actions.dragAndDrop(toppingBun, sourceElement).perform();
+    }
+
+    public void makeOrder() {
+        order().shouldBe(visible.because("Кнопка 'Оформить заказ' не отображается на странице")).click();
+        sleep(18000); //добавлено ожидание, так как заказ формируется долго.
+        order().pressEscape();
+    }
+
+    public void clickOrderFeed() {
+        orderFeed().shouldBe(visible.because("элемент 'Лента заказов' не отображается на странице")).click();
     }
 }
