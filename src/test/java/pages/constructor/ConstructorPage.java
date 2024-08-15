@@ -16,19 +16,19 @@ public class ConstructorPage {
     private final By FIND_ORDER_ON_FEED = By.xpath("//*[@class = text text_type_digits-default undefined");
 
     public SelenideElement toppingBun() {
-        return element(TOPPING_BUN).shouldBe(visible.because("Элемент 'Краторная булка N-200i' не отображается на странице"));
+        return element(TOPPING_BUN);
     }
 
     public SelenideElement sourceElement() {
-        return element(SOURCE_ELEMENT).shouldBe(visible.because("Элемент 'Выберите булки' не отображается на странице"));
+        return element(SOURCE_ELEMENT);
     }
 
     public SelenideElement order() {
-        return element(ORDER).shouldBe(visible.because("Элемент 'Оформить заказ' не отображается на странице"));
+        return element(ORDER);
     }
 
     public SelenideElement orderFeed() {
-        return element(ORDER_FEED).shouldBe(visible.because("Элемент 'Лента заказов' не отображается на странице"));
+        return element(ORDER_FEED);
     }
 
     public SelenideElement findOrder() {

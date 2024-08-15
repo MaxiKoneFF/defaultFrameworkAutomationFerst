@@ -3,6 +3,7 @@ package pages.authorization;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.element;
 
 public class AuthorizationPage {
@@ -31,6 +32,6 @@ public class AuthorizationPage {
     }
 
     public void clickEnterButton() {
-        enterButton().click();
+        enterButton().shouldBe(visible.because("кнопка 'Лента заказов' не отображается на странице")).click();
     }
 }

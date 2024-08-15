@@ -11,18 +11,18 @@ public class AccountPage {
     private final By EXIT_BUTTON = By.xpath("//button[contains(text(), 'Выход')]");
 
     public SelenideElement personalAccount() {
-        return element(ACCOUNT_BUTTON).shouldBe(visible.because("Элемент 'Личный кабинет' не отображается на странице"));
+        return element(ACCOUNT_BUTTON);
     }
 
     public SelenideElement exitFromAccount() {
-        return element(EXIT_BUTTON).shouldBe(visible.because("Кнопка 'Выход' не отображается на странице"));
+        return element(EXIT_BUTTON);
     }
 
     public void comeToPersonalAccount() {
-        personalAccount().click();
+        personalAccount().shouldBe(visible.because("Элемент 'Личный кабинет' не отображается на странице")).click();
     }
 
     public void clickExitButton() {
-        exitFromAccount().click();
+        exitFromAccount().shouldBe(visible.because("Кнопка 'Выход' не отображается на странице")).click();
     }
 }
